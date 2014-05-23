@@ -32,7 +32,7 @@ __Customize config files before run Easy Setup!__
 
 ### Changeable Variables
 
-Variables are in file `es.sh`
+Variables are in file [es.sh](https://github.com/OpenWP/easy-setup/blob/master/es.sh)
 
 ```sh
 LOG_DIR=/var/log/easy-setup
