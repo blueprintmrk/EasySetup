@@ -1,10 +1,10 @@
 # OpenWP Easy Setup for WordPress
 
-Easy Setup (es) is command-line setup tool with Markdown config files using [WP-CLI](http://wp-cli.org)
+Easy Setup (es) is command-line setup tool with __Markdown config files__ using [WP-CLI](http://wp-cli.org)
 
 For WordPress Installation use [OpenWP Turbo Engine](https://github.com/OpenWP/turbo-engine)
 
-Easy Setup is tested on `Ubuntu` and `Debian`.
+Easy Setup is tested on __Ubuntu__ and __Debian__.
 
 ## Instalation
 
