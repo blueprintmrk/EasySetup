@@ -13,19 +13,26 @@ git clone https://github.com/OpenWP/easy-setup
 cd easy-setup
 chmod +x es.sh
 sudo mv es.sh /usr/local/bin/es
-sudo cp *.md /var/www/example.com
 ```
 
 ### Config Files
 
-Move this config files to `SITE_ROOT` (/var/www/example.com)
+- [constants.md](https://github.com/OpenWP/easy-setup/blob/master/constants.md)
+- [options.md](https://github.com/OpenWP/easy-setup/blob/master/options.md)
+- [plugins.md](https://github.com/OpenWP/easy-setup/blob/master/plugins.md)
+- [themes.md](https://github.com/OpenWP/easy-setup/blob/master/themes.md)
 
-- `constants.md`
-- `options.md`
-- `plugins.md`
-- `themes.md`
+Copy this config files to SITE_ROOT (/var/www/example.com)
 
-### Changeable Variables in `es.sh`
+```sh
+sudo cp *.md /var/www/example.com
+```
+
+__Customize config files before run Easy Setup!__
+
+### Changeable Variables
+
+Variables are in file `es.sh`
 
 ```sh
 LOG_DIR=/var/log/easy-setup
