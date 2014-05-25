@@ -4,42 +4,42 @@
 
 ```sh
 # Admin UI
-user-admin-simplifier
+user-admin-simplifier --activate
 
 # Broken Link Checker
-broken-link-checker
+broken-link-checker --activate
 
 # Coming Soon and Maintenance Page
-easy-pie-coming-soon
+easy-pie-coming-soon --activate
 
 # Database cleanup and optimization tool
-wp-optimize
+wp-optimize --activate
 
 # Images
-wp-inject
+wp-inject --activate
 
 # Jetpack
-jetpack
+jetpack --activate
 
 # Lightbox
-responsive-lightbox
+responsive-lightbox --activate
 
 # Management
-mainwp-child
+mainwp-child --activate
 
 # Permalink Finder
-permalink-finder
+permalink-finder --activate
 
 # Security
 better-wp-security
-look-see-security-scanner
+look-see-security-scanner --activate
 
 # SEO
-wordpress-seo
+wordpress-seo --activate
 
 # Theme Authenticity Checker
-tac
+tac --activate
 
 # Thumbnail Rebuild
-ajax-thumbnail-rebuild
+ajax-thumbnail-rebuild --activate
 ```

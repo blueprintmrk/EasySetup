@@ -140,11 +140,11 @@ create_ssl() {
 
 install_wp_plugins() {
   if [ -e "${WP_PLUGINS}" ] ; then
-    info "Installing and Activating WordPress Plugins for $WP_ROOT"
+    info "Installing WordPress Plugins for $WP_ROOT"
     # Skip new lines and lines with chars "#-`" at start
     while read plugin ; do
       info "Installing Plugin: $plugin"
-      wpc plugin install $plugin --activate
+      wpc plugin install $plugin
     done < <(grep -vE $REGEX_MARKDOWN ${WP_PLUGINS})
   else
     err "File $WP_PLUGINS (WP_PLUGINS) Does Not Exist!"
