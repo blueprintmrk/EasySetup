@@ -1,6 +1,16 @@
 # OpenWP Easy Setup WordPress Config Constants Sample
 
 - http://codex.wordpress.org/Editing_wp-config.php
+- http://generatewp.com/wp-config
+
+## Compression
+
+```sh
+COMPRESS_CSS false
+COMPRESS_SCRIPTS false
+CONCATENATE_SCRIPTS false
+ENFORCE_GZIP false
+```
 
 ## Cron
 
@@ -10,19 +20,27 @@
 DISABLE_WP_CRON true
 ```
 
-## Debug mode
+## Debug mode for developers
 
 ```sh
 WP_DEBUG false
-
+WP_DEBUG_LOG false
 # Disable prints all non-fatal error messages at the top of the screen.
 WP_DEBUG_DISPLAY false
+SCRIPT_DEBUG false
+SAVEQUERIES false
 ```
 
-## Locale
+## Localized Language
 
 ```sh
 WPLANG 'cs_CZ'
+```
+
+## Performance
+
+```sh
+WP_MEMORY_LIMIT 64M
 ```
 
 ## SSL

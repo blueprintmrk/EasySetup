@@ -1,5 +1,7 @@
 # OpenWP Easy Setup WordPress Themes Sample
 
+- http://wp-cli.org/commands/theme
+
 ## GitHub
 
 ### Shoestrap

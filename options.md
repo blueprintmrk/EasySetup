@@ -1,6 +1,7 @@
 # OpenWP Easy Setup WordPress Options Sample for Czech Environment
 
 - http://codex.wordpress.org/Option_Reference
+- http://wp-cli.org/commands/option
 
 ## Core
 
