@@ -40,7 +40,7 @@ WPLANG 'cs_CZ'
 ## Performance
 
 ```sh
-WP_MEMORY_LIMIT 64M
+WP_MEMORY_LIMIT '64M'
 ```
 
 ## SSL
