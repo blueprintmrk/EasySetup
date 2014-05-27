@@ -60,10 +60,6 @@ ajax-thumbnail-rebuild --activate
 
 broken-link-checker --activate
 
-### [Jetpack](http://wordpress.org/plugins/jetpack/)
-
-jetpack --activate
-
 ### [MainWP Child](http://wordpress.org/plugins/mainwp-child/)
 
 - WordPress management system
