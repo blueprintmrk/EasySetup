@@ -186,7 +186,7 @@ set_wp_constants() {
         sed -i "s/define('$constant_key'.*/define('$constant_key', ${constant_value});/" $WP_CONFIG
       else
         info "Adding Constant: $constant_key $constant_value"
-        echo "define('$constant_key', $constant_value);" >> $WP_CONFIG
+        sed -i "/<?php/adefine('$constant_key', $constant_value);" $WP_CONFIG
       fi
     done < <(grep -vE $REGEX_MARKDOWN ${WP_CONSTANTS})
   else
