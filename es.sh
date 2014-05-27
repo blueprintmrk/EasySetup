@@ -92,8 +92,8 @@ check() {
 
 # Run WP-CLI as document user, not root
 wpc() {
-  sudo -u $DOCUMENT_USER -i -- wp $@ --path=$WP_ROOT
-#  wp $@ --path=$WP_ROOT --allow-root
+  wp $@ --path=$WP_ROOT --allow-root
+#  sudo -u $DOCUMENT_USER -i -- wp $@ --path=$WP_ROOT
 }
 
 install_wp-cli() {
