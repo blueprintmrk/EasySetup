@@ -25,7 +25,6 @@ set_local_constants() {
   WP_CERT=$SITE_ROOT/cert
   WP_CONFIG=$SITE_ROOT/wp-config.php
   WP_ROOT=$SITE_ROOT/htdocs
-  WP_SETTINGS=$SITE_ROOT/wp-settings.php
 
   WP_CONSTANTS=$SITE_ROOT/constants.md
   WP_OPTIONS=$SITE_ROOT/options.md
