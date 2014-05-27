@@ -12,6 +12,8 @@ admin_email 'admin@example.com'
 blogdescription 'OpenWP Easy Setup'
 blogname 'Můj Blog'
 date_format 'j.n.Y'
+home 'http://example.com'
+siteurl 'http://example.com'
 time_format 'G:i'
 timezone_string 'Europe/Prague'
 ```
