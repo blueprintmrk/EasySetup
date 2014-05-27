@@ -40,6 +40,7 @@ WPLANG 'cs_CZ'
 ## Performance
 
 ```sh
+WP_CACHE false
 WP_MEMORY_LIMIT '64M'
 ```
 
