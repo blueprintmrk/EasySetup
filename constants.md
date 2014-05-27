@@ -70,7 +70,7 @@ WP_ALLOW_REPAIR false
 DISALLOW_FILE_EDIT true
 
 # Disable theme and plugin updating and installing via admin area.
-DISALLOW_FILE_MODS true
+DISALLOW_FILE_MODS false
 
 # Limit number of revisions to keep.
 WP_POST_REVISIONS 10
