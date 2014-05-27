@@ -52,6 +52,16 @@ FORCE_SSL_ADMIN true
 FORCE_SSL_LOGIN true
 ```
 
+## Tools
+
+### Repair Database
+
+- http://example.com/wp-admin/maint/repair.php
+
+```sh
+WP_ALLOW_REPAIR false
+```
+
 ## Tweak
 
 ```sh
