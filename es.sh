@@ -86,7 +86,7 @@ check() {
 
   # Checking Crontab
   if [ ! -e /var/spool/cron/crontabs/$USER ] ; then
-    err "Need First Run 'crontab -e'" 
+    err "Need First Run 'sudo crontab -e'" 
   fi
 }
 
