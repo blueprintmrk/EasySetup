@@ -78,3 +78,8 @@ es [Options] <domain>
   themes <domain>: Install WP Themes
   update <domain>: Update WP Core, Plugins, Themes
 ```
+
+## MIT License
+
+The MIT License (MIT) Copyright (c) 2014 OpenWP [openwp.github.io](http://openwp.github.io)
+

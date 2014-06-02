@@ -8,6 +8,8 @@
 # For WordPress Installation use OpenWP Turbo Engine
 # GitHub: https://github.com/OpenWP/turbo-engine
 
+# The MIT License (MIT) Copyright (c) 2014 OpenWP [http://openwp.github.io]
+
 LOG_DIR=/var/log/easy-setup
 ERROR_LOG=$LOG_DIR/error.log
 
