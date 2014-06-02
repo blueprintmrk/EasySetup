@@ -206,10 +206,10 @@ install_wp_themes() {
 }
 
 update_wp() {
-  info "Updating WordPress Core, Plugins, Themes, Please Wait..."
-  wpc core update
+  info "Updating WordPress Plugins, Themes, Core, Please Wait..."
   wpc plugin update --all
   wpc theme update --all
+  wpc core update
 }
 
 run_all() {
