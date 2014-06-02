@@ -66,7 +66,7 @@ SSL_COUNTRY=$(echo "$DOMAIN" | rev | cut -d'.' -f1 | rev)
 ## Usage
 
 ```sh
-es [Options] <domain>
+sudo es [Options] <domain>
   all <domain>: Run All Tasks
   commands <domain>: Run WP-CLI Commands
   constants <domain>: Set WP Constants
