@@ -21,7 +21,7 @@ timezone_string 'Europe/Prague'
 ### Permalinks
 
 ```sh
-permalink_structure '/%postname%-%year%%monthnum%'
+permalink_structure '/%postname%-%year%%monthnum%/'
 category_base 'rubrika'
 tag_base 'stitek'
 ```
