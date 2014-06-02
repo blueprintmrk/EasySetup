@@ -26,10 +26,10 @@ set_local_constants() {
   WP_CONFIG=$SITE_ROOT/wp-config.php
   WP_ROOT=$SITE_ROOT/htdocs
 
-  WP_CONSTANTS=$SITE_ROOT/constants.md
-  WP_OPTIONS=$SITE_ROOT/options.md
-  WP_PLUGINS=$SITE_ROOT/plugins.md
-  WP_THEMES=$SITE_ROOT/themes.md
+  WP_CONSTANTS=$SITE_ROOT/constants*.md
+  WP_OPTIONS=$SITE_ROOT/options*.md
+  WP_PLUGINS=$SITE_ROOT/plugins*.md
+  WP_THEMES=$SITE_ROOT/themes*.md
 
   SSL_EMAIL=admin@$DOMAIN
   SSL_COUNTRY=$(echo "$DOMAIN" | rev | cut -d'.' -f1 | rev)
@@ -138,46 +138,43 @@ create_ssl() {
 }
 
 install_wp_plugins() {
-  if [ -e "${WP_PLUGINS}" ] ; then
+  if ls $WP_PLUGINS &> /dev/null; then
     info "Installing WordPress Plugins for $WP_ROOT"
-    # Skip new lines and lines with chars "#-`" at start
     while read plugin ; do
       info "Installing Plugin: $plugin"
       wpc plugin install $plugin
-    done < <(grep -vE $REGEX_MARKDOWN ${WP_PLUGINS})
+    done < <(grep -vE $REGEX_MARKDOWN $WP_PLUGINS)
   else
     err "File $WP_PLUGINS (WP_PLUGINS) Does Not Exist!"
   fi
 }
 
 install_wp_themes() {
-  if [ -e "${WP_THEMES}" ] ; then
+  if ls $WP_THEMES &> /dev/null; then
     info "Installing WordPress Themes for $WP_ROOT"
-    # Skip new lines and lines with chars "#-`" at start
     while read theme ; do
       info "Installing Theme: $theme"
       wpc theme install $theme
-    done < <(grep -vE $REGEX_MARKDOWN ${WP_THEMES})
+    done < <(grep -vE $REGEX_MARKDOWN $WP_THEMES)
   else
     err "File $WP_THEMES (WP_THEMES) Does Not Exist!"
   fi
 }
 
 set_wp_options() {
-  if [ -e "${WP_OPTIONS}" ] ; then
+  if ls $WP_OPTIONS &> /dev/null; then
     info "Setting WordPress Options for $WP_ROOT"
-    # Skip new lines and lines with chars "#-`" at start
     while read option ; do
       info "Setting Option: $option"
       wpc option update $option
-    done < <(grep -vE $REGEX_MARKDOWN ${WP_OPTIONS})
+    done < <(grep -vE $REGEX_MARKDOWN $WP_OPTIONS)
   else
     err "File $WP_OPTIONS (WP_OPTIONS) Does Not Exist!"
   fi
 }
 
 set_wp_constants() {
-  if [ -e "${WP_CONSTANTS}" ] ; then
+  if ls $WP_CONSTANTS &> /dev/null; then
     info "Setting WordPress Constants in $WP_CONFIG"
     # Skip new lines and lines with chars "#-`" at start
     while IFS=' ' read -r constant_key constant_value ; do
@@ -188,7 +185,7 @@ set_wp_constants() {
         info "Adding Constant: $constant_key $constant_value"
         sed -i "/<?php/adefine('$constant_key', $constant_value);" $WP_CONFIG
       fi
-    done < <(grep -vE $REGEX_MARKDOWN ${WP_CONSTANTS})
+    done < <(grep -vE $REGEX_MARKDOWN $WP_CONSTANTS)
   else
     err "File $WP_CONSTANTS (WP_CONSTANTS) Does Not Exist!"
   fi
