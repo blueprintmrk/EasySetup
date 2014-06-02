@@ -26,6 +26,7 @@ set_local_constants() {
   WP_CONFIG=$SITE_ROOT/wp-config.php
   WP_ROOT=$SITE_ROOT/htdocs
 
+  WP_COMMANDS=$SITE_ROOT/commands*.md
   WP_CONSTANTS=$SITE_ROOT/constants*.md
   WP_OPTIONS=$SITE_ROOT/options*.md
   WP_PLUGINS=$SITE_ROOT/plugins*.md
@@ -38,6 +39,7 @@ set_local_constants() {
 help() {
   info "Usage: $0 [Options] <domain>"
   info "all <domain>: Run All Tasks"
+  info "commands <domain>: Run WP-CLI Commands"
   info "constants <domain>: Set WP Constants"
   info "cron <domain>: Set Crontab"
   info "help: Show Help"
@@ -173,6 +175,18 @@ set_wp_options() {
   fi
 }
 
+run_wp_commands() {
+  if ls $WP_COMMANDS &> /dev/null; then
+    info "Running WP-CLI Commands for $WP_ROOT"
+    while read command ; do
+      info "Running Command: $command"
+      wpc $command
+    done < <(grep -vE $REGEX_MARKDOWN $WP_COMMANDS)
+  else
+    err "File $WP_COMMANDS (WP_COMMANDS) Does Not Exist!"
+  fi
+}
+
 set_wp_constants() {
   if ls $WP_CONSTANTS &> /dev/null; then
     info "Setting WordPress Constants in $WP_CONFIG"
@@ -207,6 +221,7 @@ run_all() {
   install_wp_plugins
   install_wp_themes
   set_wp_options
+  run_wp_commands
 }
 
 init() {
@@ -220,12 +235,13 @@ info "OpenWP Easy Setup for WordPress"
 
 # Handle Options
 case "$1" in
-  all|constants|cron|options|plugins|ssl|themes|update) init $2;;
+  all|commands|constants|cron|options|plugins|ssl|themes|update) init $2;;
   *) help;
 esac
 
 case "$1" in
   all) run_all;;
+  commands) run_wp_commands;;
   constants) set_wp_constants;;
   cron) set_crontab;;
   help) help;;
