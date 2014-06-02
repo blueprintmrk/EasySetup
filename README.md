@@ -1,8 +1,8 @@
 # OpenWP Easy Setup for WordPress
 
-Easy Setup (es) is command-line setup tool with __Markdown config files__ using [WP-CLI](http://wp-cli.org)
+__OpenWP Easy Setup__ (es) is command-line setup tool with __Markdown config files__ using __[WP-CLI](http://wp-cli.org)__
 
-For WordPress Installation use [OpenWP Turbo Engine](https://github.com/OpenWP/turbo-engine)
+For WordPress Installation use __[OpenWP Turbo Engine](https://github.com/OpenWP/turbo-engine)__
 
 Easy Setup is tested on __Ubuntu__ and __Debian__.
 
@@ -15,8 +15,9 @@ chmod +x es.sh
 sudo mv es.sh /usr/local/bin/es
 ```
 
-### Config Files
+### Markdown Config Files
 
+- [commands.md](https://github.com/OpenWP/easy-setup/blob/master/commands.md)
 - [constants.md](https://github.com/OpenWP/easy-setup/blob/master/constants.md)
 - [options.md](https://github.com/OpenWP/easy-setup/blob/master/options.md)
 - [plugins.md](https://github.com/OpenWP/easy-setup/blob/master/plugins.md)
@@ -28,7 +29,9 @@ Copy this config files to SITE_ROOT (/var/www/example.com)
 sudo cp *.md /var/www/example.com
 ```
 
-__Customize config files before run Easy Setup!__
+__Customize Config Files before run OpenWP Easy Setup!__
+
+You can create whatever config files thanks to __wildcard__ (commands*.md).
 
 ### Changeable Variables
 
@@ -50,10 +53,11 @@ WP_CERT=$SITE_ROOT/cert
 WP_CONFIG=$SITE_ROOT/wp-config.php
 WP_ROOT=$SITE_ROOT/htdocs
 
-WP_CONSTANTS=$SITE_ROOT/constants.md
-WP_OPTIONS=$SITE_ROOT/options.md
-WP_PLUGINS=$SITE_ROOT/plugins.md
-WP_THEMES=$SITE_ROOT/themes.md
+WP_COMMANDS=$SITE_ROOT/commands*.md
+WP_CONSTANTS=$SITE_ROOT/constants*.md
+WP_OPTIONS=$SITE_ROOT/options*.md
+WP_PLUGINS=$SITE_ROOT/plugins*.md
+WP_THEMES=$SITE_ROOT/themes*.md
 
 SSL_EMAIL=admin@$DOMAIN
 SSL_COUNTRY=$(echo "$DOMAIN" | rev | cut -d'.' -f1 | rev)
@@ -64,6 +68,7 @@ SSL_COUNTRY=$(echo "$DOMAIN" | rev | cut -d'.' -f1 | rev)
 ```sh
 es [Options] <domain>
   all <domain>: Run All Tasks
+  commands <domain>: Run WP-CLI Commands
   constants <domain>: Set WP Constants
   cron <domain>: Set Crontab
   help: Show Help
