@@ -13,8 +13,8 @@ ERROR_LOG=$LOG_DIR/error.log
 
 DOCUMENT_ROOT=/var/www
 DOCUMENT_USER=www-data
-# Regex for exclude markdown lines from config files
-REGEX_MARKDOWN="^$|^#|^-|^\`"
+# Regex for exclude markdown and blank lines from config files
+REGEX_MARKDOWN="^#|^-|^\*|^\`|^$"
 SSL_DAYS=3650
 
 
