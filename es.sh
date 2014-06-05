@@ -95,8 +95,8 @@ check() {
 
 # Run WP-CLI as document user, not root
 wpc() {
-  eval "wp $@ --path=$WP_ROOT --allow-root"
-# eval "sudo -u $DOCUMENT_USER -i -- wp $@ --path=$WP_ROOT"
+  eval "sudo -u $DOCUMENT_USER -i -- wp $@ --path=$WP_ROOT"
+# eval "wp $@ --path=$WP_ROOT --allow-root"
 }
 
 install_wp-cli() {
@@ -121,7 +121,7 @@ set_crontab() {
     # Write out current crontab
     crontab -l > mycron
     # Echo new cron into cron file
-    echo "*/15 * * * * /usr/bin/php5 -q $WP_ROOT/wp-cron.php > /dev/null 2>&1" >> mycron
+    echo "*/15 * * * * $DOCUMENT_USER /usr/bin/php5 -q $WP_ROOT/wp-cron.php > /dev/null 2>&1" >> mycron
     # Install new cron file
     crontab mycron
     rm mycron
