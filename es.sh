@@ -130,7 +130,7 @@ set_crontab() {
     crontab mycron
     rm mycron
   else
-    warn "Already Set Crontab for $WP_ROOT"
+    warn "Crontab Already Set for $WP_ROOT"
   fi
 }
 
