@@ -60,7 +60,7 @@ info() {
 
 # Warning message
 warn() {
-  echo -e "\033[93m$@\e[0m"
+  echo -e "$(date +"%Y-%m-%d-%H:%M:%S") \033[93m$@\e[0m" | tee -ai $ERROR_LOG
 }
 
 # Error message
@@ -126,7 +126,7 @@ set_crontab() {
     crontab mycron
     rm mycron
   else
-    info "Already Set Crontab for $WP_ROOT"
+    warn "Already Set Crontab for $WP_ROOT"
   fi
 }
 
@@ -149,7 +149,7 @@ run_wp_commands() {
       wpc $command
     done < <(grep -vE $REGEX_MARKDOWN $WP_COMMANDS)
   else
-    err "Files $WP_COMMANDS (WP_COMMANDS) Does Not Exist!"
+    warn "Files $WP_COMMANDS (WP_COMMANDS) Does Not Exist!"
   fi
 }
 
@@ -167,7 +167,7 @@ set_wp_constants() {
       fi
     done < <(grep -vE $REGEX_MARKDOWN $WP_CONSTANTS)
   else
-    err "Files $WP_CONSTANTS (WP_CONSTANTS) Does Not Exist!"
+    warn "Files $WP_CONSTANTS (WP_CONSTANTS) Does Not Exist!"
   fi
 }
 
@@ -179,7 +179,7 @@ set_wp_options() {
       wpc option update $option
     done < <(grep -vE $REGEX_MARKDOWN $WP_OPTIONS)
   else
-    err "Files $WP_OPTIONS (WP_OPTIONS) Does Not Exist!"
+    warn "Files $WP_OPTIONS (WP_OPTIONS) Does Not Exist!"
   fi
 }
 
@@ -191,7 +191,7 @@ install_wp_plugins() {
       wpc plugin install $plugin
     done < <(grep -vE $REGEX_MARKDOWN $WP_PLUGINS)
   else
-    err "Files $WP_PLUGINS (WP_PLUGINS) Does Not Exist!"
+    warn "Files $WP_PLUGINS (WP_PLUGINS) Does Not Exist!"
   fi
 }
 
@@ -203,7 +203,7 @@ install_wp_themes() {
       wpc theme install $theme
     done < <(grep -vE $REGEX_MARKDOWN $WP_THEMES)
   else
-    err "Files $WP_THEMES (WP_THEMES) Does Not Exist!"
+    warn "Files $WP_THEMES (WP_THEMES) Does Not Exist!"
   fi
 }
 
