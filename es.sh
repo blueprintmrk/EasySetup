@@ -135,14 +135,18 @@ set_crontab() {
 }
 
 create_ssl() {
-  info "Creating Self-signed SSL Certificate in $WP_CERT"
-  if [ ! -d $WP_CERT ] ; then
-    mkdir -p $WP_CERT || err "Unable To Create Directory $WP_CERT"
-  fi
+  if [ ! -e $WP_CERT/$DOMAIN.crt ] ; then
+    info "Creating Self-signed SSL Certificate in $WP_CERT"
+    if [ ! -d $WP_CERT ] ; then
+      mkdir -p $WP_CERT || err "Unable To Create Directory $WP_CERT"
+    fi
 
-  openssl genrsa -out $WP_CERT/$DOMAIN.key 1024
-  echo -ne "$SSL_COUNTRY\n$SSL_COUNTRY\n\n$DOMAIN\n$DOMAIN\n$DOMAIN\n$SSL_EMAIL\n" | \
-  openssl req -new -key $WP_CERT/$DOMAIN.key -x509 -out $WP_CERT/$DOMAIN.crt -days $SSL_DAYS
+    openssl genrsa -out $WP_CERT/$DOMAIN.key 1024
+    echo -ne "$SSL_COUNTRY\n$SSL_COUNTRY\n\n$DOMAIN\n$DOMAIN\n$DOMAIN\n$SSL_EMAIL\n" | \
+    openssl req -new -key $WP_CERT/$DOMAIN.key -x509 -out $WP_CERT/$DOMAIN.crt -days $SSL_DAYS
+  else
+    warn "Certificate Already Exist in $WP_CERT/$DOMAIN.crt"
+  fi
 }
 
 run_wp_commands() {
