@@ -155,7 +155,7 @@ run_wp_commands() {
     while read command ; do
       info "Running Command: $command"
       wpc $command
-    done < <(grep -vE $REGEX_MARKDOWN $WP_COMMANDS)
+    done < <(cat $WP_COMMANDS | grep -vE $REGEX_MARKDOWN)
   else
     warn "Files $WP_COMMANDS (WP_COMMANDS) Does Not Exist!"
   fi
@@ -173,7 +173,7 @@ set_wp_constants() {
         info "Adding Constant: $constant_key $constant_value"
         sed -i "/<?php/adefine('$constant_key', $constant_value);" $WP_CONFIG
       fi
-    done < <(grep -vE $REGEX_MARKDOWN $WP_CONSTANTS)
+    done < <(cat $WP_CONSTANTS | grep -vE $REGEX_MARKDOWN)
   else
     warn "Files $WP_CONSTANTS (WP_CONSTANTS) Does Not Exist!"
   fi
@@ -185,7 +185,7 @@ set_wp_options() {
     while read option ; do
       info "Setting Option: $option"
       wpc option update $option
-    done < <(grep -vE $REGEX_MARKDOWN $WP_OPTIONS)
+    done < <(cat $WP_OPTIONS | grep -vE $REGEX_MARKDOWN)
   else
     warn "Files $WP_OPTIONS (WP_OPTIONS) Does Not Exist!"
   fi
@@ -197,7 +197,7 @@ install_wp_plugins() {
     while read plugin ; do
       info "Installing Plugin: $plugin"
       wpc plugin install $plugin
-    done < <(grep -vE $REGEX_MARKDOWN $WP_PLUGINS)
+    done < <(cat $WP_PLUGINS | grep -vE $REGEX_MARKDOWN)
   else
     warn "Files $WP_PLUGINS (WP_PLUGINS) Does Not Exist!"
   fi
@@ -209,7 +209,7 @@ install_wp_themes() {
     while read theme ; do
       info "Installing Theme: $theme"
       wpc theme install $theme
-    done < <(grep -vE $REGEX_MARKDOWN $WP_THEMES)
+    done < <(cat $WP_THEMES | grep -vE $REGEX_MARKDOWN)
   else
     warn "Files $WP_THEMES (WP_THEMES) Does Not Exist!"
   fi
