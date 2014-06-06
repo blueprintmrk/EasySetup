@@ -112,6 +112,10 @@ install_wp-cli() {
     curl -sOL https://raw.githubusercontent.com/wp-cli/wp-cli/master/utils/wp-completion.bash || err "Unable To Download wp-completion.bash"
     mv wp-completion.bash /etc/bash_completion.d || err "Unable To Move wp-completion.bash To /etc/bash_completion.d"
     source /etc/bash_completion.d/wp-completion.bash
+
+    # Enable $DOCUMENT_USER account
+    # TODO: Add $DOCUMENT_ROOT
+    sed -i "s/$DOCUMENT_USER:\/var\/www:\/usr\/sbin\/nologin/$DOCUMENT_USER:\/var\/www:\/bin\/bash/" /etc/passwd
   fi
 }
 
