@@ -11,6 +11,7 @@
 # The MIT License (MIT) Copyright (c) 2014 OpenWP [http://openwp.github.io]
 
 LOG_DIR=/var/log/easysetup
+COMMAND_LOG=$LOG_DIR/command.log
 ERROR_LOG=$LOG_DIR/error.log
 
 DOCUMENT_ROOT=/var/www
@@ -53,19 +54,19 @@ help() {
   exit 0
 }
 
-# Info message
+# Info message in Cyan color
 info() {
-  echo -e "\033[96m$@\e[0m"
+  echo $(tput setaf 6)$@$(tput sgr0) &>> $COMMAND_LOG
 }
 
-# Warning message
+# Warning message in Yellow color
 warn() {
-  echo -e "$(date +"%Y-%m-%d-%H:%M:%S") \033[93m$@\e[0m" | tee -ai $ERROR_LOG
+  echo $(date +"%Y-%m-%d-%H:%M:%S ")$(tput setaf 3)$@$(tput sgr0) &>> $COMMAND_LOG
 }
 
-# Error message
+# Error message in Red color
 err() {
-  echo -e "$(date +"%Y-%m-%d-%H:%M:%S") \033[91m$@\e[0m" | tee -ai $ERROR_LOG
+  echo $(date +"%Y-%m-%d-%H:%M:%S ")$(tput setaf 1)$@$(tput sgr0) &>> $ERROR_LOG
   exit 100
 }
 
