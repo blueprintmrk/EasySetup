@@ -39,8 +39,7 @@ Variables are in file [es.sh](https://github.com/OpenWP/easysetup/blob/master/es
 
 ```sh
 LOG_DIR=/var/log/easysetup
-COMMAND_LOG=$LOG_DIR/command.log
-ERROR_LOG=$LOG_DIR/error.log
+ES_LOG=$LOG_DIR/es.log
 
 DOCUMENT_ROOT=/var/www
 DOCUMENT_USER=www-data

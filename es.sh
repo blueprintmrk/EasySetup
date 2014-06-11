@@ -11,8 +11,7 @@
 # The MIT License (MIT) Copyright (c) 2014 OpenWP [http://openwp.github.io]
 
 LOG_DIR=/var/log/easysetup
-COMMAND_LOG=$LOG_DIR/command.log
-ERROR_LOG=$LOG_DIR/error.log
+ES_LOG=$LOG_DIR/es.log
 
 DOCUMENT_ROOT=/var/www
 DOCUMENT_USER=www-data
@@ -56,17 +55,17 @@ help() {
 
 # Info message in Cyan color
 info() {
-  echo $(tput setaf 6)$@$(tput sgr0) | tee -ai $COMMAND_LOG
+  echo $(tput setaf 6)$@$(tput sgr0)
 }
 
 # Warning message in Yellow color
 warn() {
-  echo $(date +"%Y-%m-%d-%H:%M:%S ")$(tput setaf 3)$@$(tput sgr0) | tee -ai $COMMAND_LOG
+  echo $(date +"%Y-%m-%d-%H:%M:%S ")$(tput setaf 3)$@$(tput sgr0) | tee -ai $ES_LOG
 }
 
 # Error message in Red color
 err() {
-  echo $(date +"%Y-%m-%d-%H:%M:%S ")$(tput setaf 1)$@$(tput sgr0) | tee -ai $ERROR_LOG
+  echo $(date +"%Y-%m-%d-%H:%M:%S ")$(tput setaf 1)$@$(tput sgr0) | tee -ai $ES_LOG
   exit 100
 }
 
@@ -239,9 +238,10 @@ init() {
   domain=$1
   set_local_constants $domain
   check
-  info "OpenWP EasySetup for WordPress"
   install_wp-cli
 }
+
+info "OpenWP EasySetup for WordPress"
 
 # Handle Options
 case "$1" in
