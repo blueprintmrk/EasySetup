@@ -56,17 +56,17 @@ help() {
 
 # Info message in Cyan color
 info() {
-  echo $(tput setaf 6)$@$(tput sgr0) &>> $COMMAND_LOG
+  echo $(tput setaf 6)$@$(tput sgr0) | tee -ai $COMMAND_LOG
 }
 
 # Warning message in Yellow color
 warn() {
-  echo $(date +"%Y-%m-%d-%H:%M:%S ")$(tput setaf 3)$@$(tput sgr0) &>> $COMMAND_LOG
+  echo $(date +"%Y-%m-%d-%H:%M:%S ")$(tput setaf 3)$@$(tput sgr0) | tee -ai $COMMAND_LOG
 }
 
 # Error message in Red color
 err() {
-  echo $(date +"%Y-%m-%d-%H:%M:%S ")$(tput setaf 1)$@$(tput sgr0) &>> $ERROR_LOG
+  echo $(date +"%Y-%m-%d-%H:%M:%S ")$(tput setaf 1)$@$(tput sgr0) | tee -ai $ERROR_LOG
   exit 100
 }
 
@@ -238,9 +238,10 @@ run_all() {
 init() {
   domain=$1
   set_local_constants $domain
-  check
   install_wp-cli
 }
+
+check
 
 info "OpenWP EasySetup for WordPress"
 
