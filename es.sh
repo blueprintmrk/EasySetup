@@ -2,11 +2,11 @@
 
 # OpenWP EasySetup for WordPress
 
-# EasySetup (es) is command-line setup tool with Markdown config files using WP-CLI
+# OpenWP EasySetup (es) is command-line setup tool with Markdown config files using WP-CLI
 # GitHub: https://github.com/OpenWP/easysetup
 
-# For WordPress Installation use OpenWP Turbo Engine
-# GitHub: https://github.com/OpenWP/turbo-engine
+# For WordPress Installation use EasyEngine
+# GitHub: https://github.com/rtCamp/easyengine
 
 # The MIT License (MIT) Copyright (c) 2014 OpenWP [http://openwp.github.io]
 

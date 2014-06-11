@@ -2,7 +2,7 @@
 
 __OpenWP EasySetup__ (es) is command-line setup tool with __Markdown config files__ using __[WP-CLI](http://wp-cli.org)__
 
-For WordPress Installation use __[OpenWP Turbo Engine](https://github.com/OpenWP/turbo-engine)__
+For WordPress Installation use [EasyEngine](https://github.com/rtCamp/easyengine)
 
 OpenWP EasySetup is tested on __Ubuntu__ and __Debian__.
 
