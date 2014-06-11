@@ -1,4 +1,4 @@
-# OpenWP Easy Setup WordPress Config Constants Sample
+# OpenWP EasySetup WordPress Config Constants Sample
 
 - http://codex.wordpress.org/Editing_wp-config.php
 - http://generatewp.com/wp-config

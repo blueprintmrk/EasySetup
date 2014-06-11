@@ -1,4 +1,4 @@
-# OpenWP Easy Setup WordPress Themes Sample
+# OpenWP EasySetup WordPress Themes Sample
 
 - http://wp-cli.org/commands/theme
 

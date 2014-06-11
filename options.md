@@ -1,4 +1,4 @@
-# OpenWP Easy Setup WordPress Options Sample for Czech Environment
+# OpenWP EasySetup WordPress Options Sample for Czech Environment
 
 - http://codex.wordpress.org/Option_Reference
 - http://wp-cli.org/commands/option
@@ -9,7 +9,7 @@
 
 ```sh
 admin_email 'admin@example.com'
-blogdescription 'OpenWP Easy Setup'
+blogdescription 'OpenWP EasySetup'
 blogname 'Můj Blog'
 date_format 'j.n.Y'
 home 'http://example.com'
@@ -67,9 +67,9 @@ woocommerce_currency_pos 'right_space'
 woocommerce_price_thousand_sep ' '
 woocommerce_price_decimal_sep ','
 
-woocommerce_email_footer_text 'OpenWP Easy Setup'
+woocommerce_email_footer_text 'OpenWP EasySetup'
 woocommerce_email_from_address 'info@example.com'
-woocommerce_email_from_name 'OpenWP Easy Setup'
+woocommerce_email_from_name 'OpenWP EasySetup'
 
 woocommerce_enable_myaccount_registration 'yes'
 woocommerce_enable_signup_and_login_from_checkout 'yes'

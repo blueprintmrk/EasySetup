@@ -1,16 +1,16 @@
 #!/bin/bash
 
-# OpenWP Easy Setup for WordPress
+# OpenWP EasySetup for WordPress
 
-# Easy Setup (es) is command-line setup tool with Markdown config files using WP-CLI
-# GitHub: https://github.com/OpenWP/easy-setup
+# EasySetup (es) is command-line setup tool with Markdown config files using WP-CLI
+# GitHub: https://github.com/OpenWP/easysetup
 
 # For WordPress Installation use OpenWP Turbo Engine
 # GitHub: https://github.com/OpenWP/turbo-engine
 
 # The MIT License (MIT) Copyright (c) 2014 OpenWP [http://openwp.github.io]
 
-LOG_DIR=/var/log/easy-setup
+LOG_DIR=/var/log/easysetup
 ERROR_LOG=$LOG_DIR/error.log
 
 DOCUMENT_ROOT=/var/www
@@ -241,7 +241,7 @@ init() {
   install_wp-cli
 }
 
-info "OpenWP Easy Setup for WordPress"
+info "OpenWP EasySetup for WordPress"
 
 # Handle Options
 case "$1" in

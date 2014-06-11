@@ -1,4 +1,4 @@
-# OpenWP Easy Setup WordPress WP-CLI Commands Sample
+# OpenWP EasySetup WordPress WP-CLI Commands Sample
 
 - http://wp-cli.org/commands
 
