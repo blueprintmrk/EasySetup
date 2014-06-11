@@ -238,12 +238,10 @@ run_all() {
 init() {
   domain=$1
   set_local_constants $domain
+  check
+  info "OpenWP EasySetup for WordPress"
   install_wp-cli
 }
-
-check
-
-info "OpenWP EasySetup for WordPress"
 
 # Handle Options
 case "$1" in
