@@ -6,7 +6,7 @@ For WordPress Installation use [EasyEngine](https://github.com/rtCamp/easyengine
 
 OpenWP EasySetup is tested on __Ubuntu__ and __Debian__.
 
-## Instalation
+## Installation
 
 ```sh
 git clone https://github.com/OpenWP/easysetup
