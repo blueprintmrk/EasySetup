@@ -12,7 +12,7 @@ OpenWP EasySetup is tested on __Ubuntu__ and __Debian__.
 git clone https://github.com/OpenWP/easysetup
 cd easysetup
 chmod +x es.sh
-sudo mv es.sh /usr/local/bin/es
+sudo cp es.sh /usr/local/bin/es
 ```
 
 ### Markdown Config Files
