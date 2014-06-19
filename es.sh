@@ -31,6 +31,7 @@ set_local_constants() {
   WP_COMMANDS=$SITE_ROOT/commands*.md
   WP_CONSTANTS=$SITE_ROOT/constants*.md
   WP_OPTIONS=$SITE_ROOT/options*.md
+  WP_GETOPTIONS=$SITE_ROOT/getoptions*.md
   WP_PLUGINS=$SITE_ROOT/plugins*.md
   WP_THEMES=$SITE_ROOT/themes*.md
 
@@ -46,6 +47,7 @@ help() {
   info "cron <domain>: Set Crontab"
   info "help: Show Help"
   info "options <domain>: Set WP Options"
+  info "getoptions <domain>: Get WP Options in JSON Format"
   info "plugins <domain>: Install WP Plugins"
   info "ssl <domain>: Create Self-signed SSL Certificate"
   info "themes <domain>: Install WP Themes"
@@ -179,6 +181,18 @@ set_wp_constants() {
   fi
 }
 
+get_wp_options() {
+  if ls $WP_GETOPTIONS &> /dev/null; then
+    info "Getting WordPress Options for $WP_ROOT"
+    while read option ; do
+      info "Getting Option: $option"
+      wpc option get $option --format=json | python -mjson.tool > $option.json
+    done < <(cat $WP_GETOPTIONS | grep -vE $REGEX_MARKDOWN)
+  else
+    warn "Files $WP_GETOPTIONS (WP_GETOPTIONS) Does Not Exist!"
+  fi
+}
+
 set_wp_options() {
   if ls $WP_OPTIONS &> /dev/null; then
     info "Setting WordPress Options for $WP_ROOT"
@@ -245,7 +259,7 @@ info "OpenWP EasySetup for WordPress"
 
 # Handle Options
 case "$1" in
-  all|commands|constants|cron|options|plugins|ssl|themes|update) init $2;;
+  all|commands|constants|cron|getoptions|options|plugins|ssl|themes|update) init $2;;
   *) help;
 esac
 
@@ -254,6 +268,7 @@ case "$1" in
   commands) run_wp_commands;;
   constants) set_wp_constants;;
   cron) set_crontab;;
+  getoptions) get_wp_options;;
   help) help;;
   options) set_wp_options;;
   plugins) install_wp_plugins;;

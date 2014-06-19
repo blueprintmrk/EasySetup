@@ -20,6 +20,7 @@ sudo cp es.sh /usr/local/bin/es
 - [commands.md](https://github.com/OpenWP/easysetup/blob/master/commands.md)
 - [constants.md](https://github.com/OpenWP/easysetup/blob/master/constants.md)
 - [options.md](https://github.com/OpenWP/easysetup/blob/master/options.md)
+- [getoptions.md](https://github.com/OpenWP/easysetup/blob/master/getoptions.md)
 - [plugins.md](https://github.com/OpenWP/easysetup/blob/master/plugins.md)
 - [themes.md](https://github.com/OpenWP/easysetup/blob/master/themes.md)
 
@@ -56,6 +57,7 @@ WP_ROOT=$SITE_ROOT/htdocs
 WP_COMMANDS=$SITE_ROOT/commands*.md
 WP_CONSTANTS=$SITE_ROOT/constants*.md
 WP_OPTIONS=$SITE_ROOT/options*.md
+WP_GETOPTIONS=$SITE_ROOT/getoptions*.md
 WP_PLUGINS=$SITE_ROOT/plugins*.md
 WP_THEMES=$SITE_ROOT/themes*.md
 
@@ -73,6 +75,7 @@ sudo es [Options] <domain>
   cron <domain>: Set Crontab
   help: Show Help
   options <domain>: Set WP Options
+  getoptions <domain>: Get WP Options in JSON Format
   plugins <domain>: Install WP Plugins
   ssl <domain>: Create Self-signed SSL Certificate
   themes <domain>: Install WP Themes
