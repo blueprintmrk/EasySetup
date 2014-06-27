@@ -54,12 +54,12 @@ WP_CERT=$SITE_ROOT/cert
 WP_CONFIG=$SITE_ROOT/wp-config.php
 WP_ROOT=$SITE_ROOT/htdocs
 
-WP_COMMANDS=$SITE_ROOT/commands*.md
-WP_CONSTANTS=$SITE_ROOT/constants*.md
-WP_OPTIONS=$SITE_ROOT/options*.md
-WP_GETOPTIONS=$SITE_ROOT/getoptions*.md
-WP_PLUGINS=$SITE_ROOT/plugins*.md
-WP_THEMES=$SITE_ROOT/themes*.md
+WP_COMMANDS=$SITE_ROOT/setup/commands*.md
+WP_CONSTANTS=$SITE_ROOT/setup/constants*.md
+WP_OPTIONS=$SITE_ROOT/setup/options*.md
+WP_GETOPTIONS=$SITE_ROOT/setup/getoptions*.md
+WP_PLUGINS=$SITE_ROOT/setup/plugins*.md
+WP_THEMES=$SITE_ROOT/setup/themes*.md
 
 SSL_EMAIL=admin@$DOMAIN
 SSL_COUNTRY=$(echo "$DOMAIN" | rev | cut -d'.' -f1 | rev)
