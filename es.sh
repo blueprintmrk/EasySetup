@@ -176,6 +176,9 @@ set_wp_constants() {
         sed -i "/<?php/adefine('$constant_key', $constant_value);" $WP_CONFIG
       fi
     done < <(cat $WP_CONSTANTS | grep -vE $REGEX_MARKDOWN)
+
+    info "Replace _domain_ with $DOMAIN"
+    sed -i "s/_domain_/$DOMAIN/g" $WP_CONFIG
   else
     warn "Files $WP_CONSTANTS (WP_CONSTANTS) Does Not Exist!"
   fi
@@ -241,11 +244,11 @@ run_all() {
   set_crontab
   create_ssl
   set_wp_constants
-  update_wp
   install_wp_plugins
   install_wp_themes
   set_wp_options
   run_wp_commands
+  update_wp
 }
 
 init() {
