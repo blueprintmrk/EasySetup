@@ -122,14 +122,14 @@ install_wp-cli() {
 }
 
 set_crontab() {
-  if ! crontab -l | grep -q $WP_ROOT ; then
+  if ! crontab -l -u $DOCUMENT_USER | grep -q $WP_ROOT ; then
     info "Setting Crontab, Please Wait..."
     # Write out current crontab
-    crontab -l > mycron
+    crontab -l -u $DOCUMENT_USER > mycron
     # Echo new cron into cron file
-    echo "*/15 * * * * $DOCUMENT_USER /usr/bin/php5 -q $WP_ROOT/wp-cron.php > /dev/null 2>&1" >> mycron
+    echo "*/15 * * * * /usr/bin/php5 -q $WP_ROOT/wp-cron.php > /dev/null 2>&1" >> mycron
     # Install new cron file
-    crontab mycron
+    crontab -u $DOCUMENT_USER mycron
     rm mycron
   else
     warn "Crontab Already Set for $WP_ROOT"
