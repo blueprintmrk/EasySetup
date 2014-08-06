@@ -243,9 +243,9 @@ run_all() {
   info "Running All Tasks, Please Wait..."
   set_crontab
   create_ssl
-  set_wp_constants
   install_wp_plugins
   install_wp_themes
+  set_wp_constants
   set_wp_options
   run_wp_commands
   update_wp
