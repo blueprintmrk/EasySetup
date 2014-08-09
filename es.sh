@@ -143,7 +143,7 @@ create_ssl() {
       mkdir -p $WP_CERT || err "Unable To Create Directory $WP_CERT"
     fi
 
-    openssl genrsa -out $WP_CERT/$DOMAIN.key 1024
+    openssl genrsa -out $WP_CERT/$DOMAIN.key 2048
     echo -ne "$SSL_COUNTRY\n$SSL_COUNTRY\n\n$DOMAIN\n$DOMAIN\n$DOMAIN\n$SSL_EMAIL\n" | \
     openssl req -new -key $WP_CERT/$DOMAIN.key -x509 -out $WP_CERT/$DOMAIN.crt -days $SSL_DAYS
   else
