@@ -18,6 +18,7 @@ DOCUMENT_USER=www-data
 # Regex for exclude markdown and blank lines from config files
 REGEX_MARKDOWN="^#|^-|^\*|^\`|^$"
 SSL_DAYS=3650
+WP_DB_PREFIX=wp_
 
 
 set_local_constants() {
@@ -34,6 +35,7 @@ set_local_constants() {
   WP_GETOPTIONS=$SITE_ROOT/setup/getoptions*.md
   WP_PLUGINS=$SITE_ROOT/setup/plugins*.md
   WP_THEMES=$SITE_ROOT/setup/themes*.md
+  WP_VARIABLES=$SITE_ROOT/setup/variables*.md
 
   SSL_EMAIL=admin@$DOMAIN
   SSL_COUNTRY=$(echo "$DOMAIN" | rev | cut -d'.' -f1 | rev)
@@ -52,6 +54,7 @@ help() {
   info "ssl <domain>: Create Self-signed SSL Certificate"
   info "themes <domain>: Install WP Themes"
   info "update <domain>: Update WP Core, Plugins, Themes"
+  info "variables <domain>: Set Variables in WP Options"
   exit 0
 }
 
@@ -208,6 +211,18 @@ set_wp_options() {
   fi
 }
 
+set_wp_variables() {
+  if ls $WP_VARIABLES &> /dev/null; then
+    info "Setting Variables in WordPress Options for $WP_ROOT"
+    while read variable ; do
+      info "Setting Variable: $variable"
+      wpc search-replace $variable $WP_DB_PREFIXoptions
+    done < <(cat $WP_VARIABLES | grep -vE $REGEX_MARKDOWN)
+  else
+    warn "Files $WP_VARIABLES (WP_VARIABLES) Does Not Exist!"
+  fi
+}
+
 install_wp_plugins() {
   if ls $WP_PLUGINS &> /dev/null; then
     info "Installing WordPress Plugins for $WP_ROOT"
@@ -247,6 +262,7 @@ run_all() {
   install_wp_themes
   set_wp_constants
   set_wp_options
+  set_wp_variables
   run_wp_commands
   update_wp
 }
@@ -262,7 +278,7 @@ info "OpenWP EasySetup for WordPress"
 
 # Handle Options
 case "$1" in
-  all|commands|constants|cron|getoptions|options|plugins|ssl|themes|update) init $2;;
+  all|commands|constants|cron|getoptions|options|plugins|ssl|themes|update|variables) init $2;;
   *) help;
 esac
 
@@ -278,4 +294,5 @@ case "$1" in
   ssl) create_ssl;;
   themes) install_wp_themes;;
   update) update_wp;;
+  variables) set_wp_variables;;
 esac

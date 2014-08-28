@@ -23,11 +23,13 @@ sudo cp es.sh /usr/local/bin/es
 - [getoptions.md](https://github.com/OpenWP/easysetup/blob/master/getoptions.md)
 - [plugins.md](https://github.com/OpenWP/easysetup/blob/master/plugins.md)
 - [themes.md](https://github.com/OpenWP/easysetup/blob/master/themes.md)
+- [variables.md](https://github.com/OpenWP/easysetup/blob/master/variables.md)
 
-Copy this config files to SITE_ROOT (/var/www/example.com)
+Copy this config files to SITE_ROOT/setup (/var/www/example.com/setup)
 
 ```sh
-sudo cp *.md /var/www/example.com
+mkdir /var/www/example.com/setup
+sudo cp *.md /var/www/example.com/setup
 ```
 
 __Customize Config Files before run OpenWP EasySetup!__
@@ -60,6 +62,7 @@ WP_OPTIONS=$SITE_ROOT/setup/options*.md
 WP_GETOPTIONS=$SITE_ROOT/setup/getoptions*.md
 WP_PLUGINS=$SITE_ROOT/setup/plugins*.md
 WP_THEMES=$SITE_ROOT/setup/themes*.md
+WP_VARIABLES=$SITE_ROOT/setup/variables*.md
 
 SSL_EMAIL=admin@$DOMAIN
 SSL_COUNTRY=$(echo "$DOMAIN" | rev | cut -d'.' -f1 | rev)
@@ -80,6 +83,7 @@ sudo es [Options] <domain>
   ssl <domain>: Create Self-signed SSL Certificate
   themes <domain>: Install WP Themes
   update <domain>: Update WP Core, Plugins, Themes
+  variables <domain>: Set Variables in WP Options
 ```
 
 ## MIT License

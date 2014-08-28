@@ -8,9 +8,9 @@
 ### General
 
 ```sh
-admin_email 'admin@example.com'
-blogdescription 'OpenWP EasySetup'
-blogname 'Můj Blog'
+admin_email 'ES_EMAIL_FROM_ADDRESS'
+blogdescription 'ES_SITE_DESCRIPTION'
+blogname 'ES_SITE_NAME'
 date_format 'j.n.Y'
 home 'http://example.com'
 siteurl 'http://example.com'
