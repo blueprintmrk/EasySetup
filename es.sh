@@ -192,7 +192,7 @@ get_wp_options() {
     info "Getting WordPress Options for $WP_ROOT"
     while read option ; do
       info "Getting Option: $option"
-      wpc option get $option --format=json | python -mjson.tool > $option.json
+      wpc option get $option --format=json | jq '.' > $option.json
     done < <(cat $WP_GETOPTIONS | grep -vE $REGEX_MARKDOWN)
   else
     warn "Files $WP_GETOPTIONS (WP_GETOPTIONS) Does Not Exist!"

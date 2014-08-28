@@ -9,6 +9,7 @@ OpenWP EasySetup is tested on __Ubuntu__ and __Debian__.
 ## Installation
 
 ```sh
+sudo apt-get install jq
 git clone https://github.com/OpenWP/easysetup
 cd easysetup
 chmod +x es.sh
