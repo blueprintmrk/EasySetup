@@ -203,9 +203,20 @@ set_wp_options() {
   if ls $WP_OPTIONS &> /dev/null; then
     info "Setting WordPress Options for $WP_ROOT"
     while read option ; do
-      info "Setting Option: $option"
-      wpc option update $option
+      option_arr=(${option// / })
+      file_type=`echo ${option_arr[1]} | cut -d. -f2`
+      if [ "$file_type" == "json" ]; then
+        info "Getting Option: $option"
+        wpc option get ${option_arr[0]} --format=json > temp.json
+        info "Merge Option: $option"
+        jq -s add temp.json ${option_arr[1]} > temp.json
+        wpc option update ${option_arr[0]} --format=json < temp.json
+      else
+        info "Update Option: $option"
+        wpc option update $option
+      fi
     done < <(cat $WP_OPTIONS | grep -vE $REGEX_MARKDOWN)
+    rm temp.json
   else
     warn "Files $WP_OPTIONS (WP_OPTIONS) Does Not Exist!"
   fi
