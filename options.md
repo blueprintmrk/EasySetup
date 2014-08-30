@@ -8,7 +8,7 @@
 ### General
 
 ```sh
-admin_email 'ES_EMAIL_FROM_ADDRESS'
+admin_email 'ES@EMAIL.COM'
 blogdescription 'ES_SITE_DESCRIPTION'
 blogname 'ES_SITE_NAME'
 date_format 'j.n.Y'

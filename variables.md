@@ -19,8 +19,8 @@ ES_TWITTER_API_SECRET ' '
 ## Email
 
 ```sh
+ES@EMAIL.COM '@.com'
 ES_EMAIL_FROM_NAME ' '
-ES_EMAIL_FROM_ADDRESS '@.com'
 ES_EMAIL_FOOTER_TEXT ' '
 ```
 
