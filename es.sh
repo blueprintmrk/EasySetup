@@ -227,7 +227,7 @@ set_wp_variables() {
     info "Setting Variables in WordPress Options for $WP_ROOT"
     while read variable ; do
       info "Setting Variable: $variable"
-      wpc search-replace $variable $WP_DB_PREFIXoptions
+      wpc search-replace $variable ${WP_DB_PREFIX}options
     done < <(cat $WP_VARIABLES | grep -vE $REGEX_MARKDOWN)
   else
     warn "Files $WP_VARIABLES (WP_VARIABLES) Does Not Exist!"
